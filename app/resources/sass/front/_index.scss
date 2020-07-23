@@ -1,0 +1,41 @@
+.index_container{
+    height: 200vh;
+    opacity: 0.8;
+    padding-top: 10vh;
+    display: flex;
+    position: relative;
+    .index_back_image_area {
+        height: 100vh;
+        width: 100%;
+        object-fit: cover;
+        position: fixed;
+        z-index: 0;
+        opacity: 0.8;
+    }
+    .index_article_container {
+        position: relative;
+        width: 40%;
+        height: 90vh;
+        background-color: white;
+        opacity: 0.5;
+        overflow: hidden;
+        .index_top_title {
+            border-bottom: 1px solid gray;
+            margin-top: 10px 10px;
+            .index_near_article {
+                margin: 15px 5px 5px;
+            }
+        }
+        .index_article_content {
+            border-bottom: 1px solid gray;
+            min-height: 100px;
+            margin: 15px 5px 5px;
+            .index_title_area {
+
+            }
+            .index_article_area {
+                margin-top: 15px;
+            }
+        }
+    }
+}
