@@ -10961,7 +10961,7 @@ a.text-dark:focus {
 }
 
 .index_container .index_article_container .index_top_title .index_near_article {
-  margin: 15px 5px 5px;
+  margin: 35px 5px 5px;
 }
 
 .index_container .index_article_container .index_article_content {
@@ -11016,13 +11016,23 @@ a.text-dark:focus {
   margin-bottom: 10px;
 }
 
-.header_nav_area_content {
-  margin-left: 10px;
+.header_nav_area .header_search_area {
+  border: solid 1px gray;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
-.header_search_input {
-  border-radius: 5px;
+.header_nav_area .header_search_area .header_search_input {
   width: 200px;
+  border: none;
+}
+
+.header_nav_area .header_search_area .header_search_button {
+  border: none;
+}
+
+.header_nav_area_content {
+  margin-left: 10px;
 }
 
 .header_nav_area_content {
