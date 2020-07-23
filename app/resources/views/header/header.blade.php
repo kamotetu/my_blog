@@ -7,8 +7,10 @@
         <div class="header_main_area">
             <div class="header_nav_area">
                 <form action="">
-                    <input type="text" placeholder="検索" name="header_search_input" class="header_search_input">
-                    <button type="submit" class="header_search_button">検索</button>
+                    <div class="header_search_area">
+                        <input type="text" placeholder="検索" name="header_search_input" class="header_search_input">
+                        <button type="submit" class="header_search_button">検索</button>
+                    </div>
                 </form>
                 <div class="header_nav_area_content">
                     <div class="header_nav_area_blog">

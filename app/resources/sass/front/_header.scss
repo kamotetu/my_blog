@@ -38,16 +38,25 @@
     bottom: 0;
     display: flex;
     margin-bottom: 10px;
+    .header_search_area {
+        border: solid 1px gray;
+        border-radius: 5px;
+        overflow: hidden;
+        .header_search_input {
+            width: 200px;
+            border: none;
+        }
+        .header_search_button {
+            border: none;
+        }
+    }
 }
 
 .header_nav_area_content {
     margin-left: 10px;
 }
 
-.header_search_input {
-    border-radius: 5px;
-    width: 200px;
-}
+
 
 .header_nav_area_content {
     border: ridge ;
