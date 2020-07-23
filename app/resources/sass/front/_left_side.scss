@@ -2,7 +2,6 @@
     position: relative;
     width: 20%;
     height: auto;
-    // transform: translateX(-80%);
     left: -16%;
     transition: .5s;
     
@@ -13,7 +12,7 @@
             font-size: 35px;
             float: right;
             z-index: 1;
-            padding-right: 10px;
+            padding-right: 20px;
             cursor: pointer;
             transition: .5s;
         }
