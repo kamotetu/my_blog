@@ -10951,7 +10951,7 @@ a.text-dark:focus {
   width: 47%;
   height: 90vh;
   background-color: white;
-  opacity: 0.5;
+  opacity: 0.7;
   overflow: hidden;
 }
 
@@ -11070,7 +11070,6 @@ h5 {
 
 .left_side_content .index_left_side_content_icon_area {
   position: relative;
-  padding-right: 5px;
 }
 
 .left_side_content .index_left_side_content_icon_area .fa-align-justify {

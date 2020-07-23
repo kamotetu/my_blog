@@ -4,12 +4,7 @@
     @include('header.header')
     <div class="index_container">
         <img src="{{ asset('images/back_image3.jpg') }}" alt="かもてつ日記" class="index_back_image_area">
-        <div class="left_side_content">
-            <div class="index_left_side_content_icon_area">
-                <i class="fas fa-align-justify"></i>
-                <i class="fas fa-angle-left"></i>
-            </div>
-        </div>
+        @include('front.left_side');
         <div class="index_article_container">
             <div class="index_top_title">
                 <h2 class="index_near_article">
