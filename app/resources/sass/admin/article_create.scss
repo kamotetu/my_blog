@@ -1,0 +1,55 @@
+.article_create_container {
+    .article_create_left_area {
+        position: relative;
+        left: 20px;
+        padding: 10px;
+        width: 45%;
+        border-right: 1px solid gray;
+        .article_create_title_area {
+            padding: 10px;
+            .article_create_title_headline {
+
+            }
+            .article_create_title_input {
+                &_form {
+                    width: 100%;
+                    border-radius: 5px;
+                }
+            }
+        }
+        .article_create_genre_area {
+            padding: 10px;
+            .article_create_genre_headline {
+
+            }
+            .article_create_genre_input {
+
+            }
+        }
+        .article_create_tag_area {
+            padding: 10px;
+            .article_create_tag_headline {
+
+            }
+            .article_create_tag_input {
+                &_form {
+                    width: 100%;
+                    border-radius: 5px;
+                }
+            }
+        }
+        .article_create_article_area {
+            padding: 10px;
+            #article_create_article_input {
+                padding: 10px;
+                &_form {
+                    width: 100%;
+                    line-height: 20px;
+                    padding: 5px;
+                    border-radius: 5px;
+                    border: 2px solid black;
+                }
+            }
+        }
+    }
+}
