@@ -11114,6 +11114,52 @@ h5 {
   transition: 0.5s;
 }
 
+.article_create_container .article_create_left_area {
+  position: relative;
+  left: 20px;
+  padding: 10px;
+  width: 45%;
+  border-right: 1px solid gray;
+}
+
+.article_create_container .article_create_left_area .article_create_title_area {
+  padding: 10px;
+}
+
+.article_create_container .article_create_left_area .article_create_title_area .article_create_title_input_form {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.article_create_container .article_create_left_area .article_create_genre_area {
+  padding: 10px;
+}
+
+.article_create_container .article_create_left_area .article_create_tag_area {
+  padding: 10px;
+}
+
+.article_create_container .article_create_left_area .article_create_tag_area .article_create_tag_input_form {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.article_create_container .article_create_left_area .article_create_article_area {
+  padding: 10px;
+}
+
+.article_create_container .article_create_left_area .article_create_article_area #article_create_article_input {
+  padding: 10px;
+}
+
+.article_create_container .article_create_left_area .article_create_article_area #article_create_article_input_form {
+  width: 100%;
+  line-height: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
 /*!
  * Font Awesome Free 5.14.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
