@@ -15,4 +15,15 @@ class Article extends Model
     {
         return $this->belongsTo('App\Model\User');
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany('App\Models\Tag')->withTimestamps();
+    }
+
+    public function genres()
+    {
+        return $this->belongsToMany('App\Models\Genre')->withTimestamps();
+    }
+
 }
