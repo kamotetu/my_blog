@@ -8,8 +8,8 @@
 @section('content')
     <div class="article_create_container">
         <div class="article_create_left_area">
-            <form action="">
-                {{-- @csrf --}}
+            <form action="{{ route('article.store') }}" method="post">
+                @csrf
             <div class="article_create_title_area">
                 <div class="article_create_title_headline">
                     <p>タイトル</p>
@@ -42,7 +42,38 @@
                     <textarea name="" rows="10" id="article_create_article_input_form"></textarea>
                 </div>
             </div>
+            <div class="article_create_submit_area">
+                <button type=submit id="input_article_submit">投稿する</button>
+                <button type=submit id="input_article_temporary">下書きとして保存</button>
+            </div>
             </form>
+        </div>
+        <div class="article_create_right_area">
+            <div class="article_view_preview_area">
+                <div class="article_view_preview">
+                    <p>プレビュー</p>
+                </div>
+            </div>
+            <div class="article_view_genre_area">
+                <div class="article_view_genre">
+                    
+                </div>
+            </div>
+            <div class="article_view_title_area">
+                <div class="article_view_title">
+
+                </div>
+            </div>
+            <div class="article_view_tag_area">
+                <div class="article_view_tag">
+
+                </div>
+            </div>
+            <div class="article_view_article_area">
+                <div class="article_view_article">
+
+                </div>
+            </div>
         </div>
     </div>
 @endsection

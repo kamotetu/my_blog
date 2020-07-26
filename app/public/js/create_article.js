@@ -93,7 +93,17 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Users/kamoitooru/Documents/my_app/laravel_app/my_blog/app/resources/js/create_article.js'");
+$(function () {
+  var $textarea = $('#article_create_article_input_form');
+  var lineHeight = parseInt($textarea.css('lineHeight'));
+  $textarea.on('input', function (e) {
+    var lines = ($(this).val() + '\n').match(/\n/g).length;
+
+    if (lines >= 10) {
+      $(this).height(lineHeight * lines);
+    }
+  });
+});
 
 /***/ }),
 

@@ -21,7 +21,11 @@ Route::get('/', 'FrontController@index')->name('front.index');
 
 Auth::routes();
 
-Route::get('article/create', 'ArticleController@create')->middleware('auth')->name('article.create');
+Route::middleware(['auth'])->group(function(){
+    Route::get('article/create', 'ArticleController@create')->name('article.create');
+    Route::post('article/store', 'ArticleController@store')->name('article.store');
+});
+// Route::get('article/create', 'ArticleController@create')->middleware('auth')->name('article.create');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
