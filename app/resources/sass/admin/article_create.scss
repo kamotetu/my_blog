@@ -15,6 +15,7 @@
                 &_form {
                     width: 100%;
                     border-radius: 5px;
+                    line-height: 20px;
                 }
             }
         }
@@ -81,6 +82,7 @@
             .article_view_title {
                 border-bottom: 1px solid gray;
                 min-width: 20%;
+                min-height: 20px;
             }
         }
         .article_view_tag_area {
@@ -99,7 +101,7 @@
                 border-radius: 5px;
                 overflow: hidden;
                 width: 100%;
-                min-height: 50vh;
+                min-height: 23vh;
             }
         }
     }

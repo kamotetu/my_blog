@@ -48,7 +48,7 @@ class ArticleController extends Controller
 
         if(!empty($errors)){
             return view(
-                'main.article.index',
+                'admin.article.create',
                 [
                     'errors' => $errors,
                 ]
@@ -99,7 +99,7 @@ class ArticleController extends Controller
     
         return redirect(
             route(
-                'article.edit',
+                'admin.article.create',
                 [
                     'id' => $Article->id,
                 ]
