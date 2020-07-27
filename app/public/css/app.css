@@ -11131,6 +11131,7 @@ h5 {
 .article_create_container .article_create_left_area .article_create_title_area .article_create_title_input_form {
   width: 100%;
   border-radius: 5px;
+  line-height: 20px;
 }
 
 .article_create_container .article_create_left_area .article_create_genre_area {
@@ -11195,6 +11196,7 @@ h5 {
 .article_create_container .article_create_right_area .article_view_title_area .article_view_title {
   border-bottom: 1px solid gray;
   min-width: 20%;
+  min-height: 20px;
 }
 
 .article_create_container .article_create_right_area .article_view_tag_area {
@@ -11217,7 +11219,7 @@ h5 {
   border-radius: 5px;
   overflow: hidden;
   width: 100%;
-  min-height: 50vh;
+  min-height: 23vh;
 }
 
 /*!
