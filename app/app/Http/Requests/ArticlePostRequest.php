@@ -32,9 +32,8 @@ class ArticlePostRequest extends FormRequest
     public function messages()
 {
     return [
-        'title.required' => '必須',
+        'required' => '必須',
         'title.max' => '50文字以内',
-        'article.required' => '必須',
     ];
 }
 }
