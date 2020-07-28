@@ -37,20 +37,20 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $errors = [];
+        $error = [];
 
         if($request->title === null){
-            $errors['title'] = 'タイトルが入力されていません。';
+            $error['title'] = 'タイトルが入力されていません。';
         }
         if($request->article === null){
-            $errors['article'] = '記事が入力されていません。';
+            $error['article'] = '記事が入力されていません。';
         }
 
-        if(!empty($errors)){
+        if(!empty($error)){
             return view(
                 'admin.article.create',
                 [
-                    'errors' => $errors,
+                    'errors' => $error,
                 ]
             );
         }

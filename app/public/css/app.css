@@ -11210,6 +11210,15 @@ h5 {
   width: 100%;
 }
 
+.article_create_container .article_create_right_area .article_view_tag_area .article_view_tag .article_view_tag_color {
+  background-color: #57d4fa;
+  border-radius: 3px;
+  margin: 3px 0px 3px 0px;
+  padding: 0 1px 0 1px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .article_create_container .article_create_right_area .article_view_article_area {
   padding: 10px;
 }

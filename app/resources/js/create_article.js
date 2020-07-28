@@ -29,7 +29,7 @@ $(function(){
     $('.article_create_tag_input_form').on('keyup', function (){
         var input_value = $('.article_create_tag_input_form').val();
         var input_value = input_value.replace(/\s|　|,|、/g, " ");
-
+        var input_value = input_value.replace(/([^\s]+)/g, '<span class="article_view_tag_color">' + '$1' + '</span>');
         $('.article_view_tag').html(input_value);
     });
 
