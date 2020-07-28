@@ -15,18 +15,19 @@
                         <p>ジャンル</p>
                     </div>
                     <div class="article_create_genre_input">
-                        <input type="text">
+                        <input type="text" name="genre">
                     </div>
                 </div>
                 <div class="article_create_title_area">
                     <div class="article_create_title_headline">
                         <p>タイトル</p>
                     </div>
-                    @if(isset($error['title']))
-                        <p class="alert">{{ $error['title'] }}</p>
-                    @endif
+                    
                     <div class="article_create_title_input">
-                        <textarea name="" rows="1" class="article_create_title_input_form"></textarea>
+                        @error('title')
+                            <p class="validate_alert">{{ $message }}</p>
+                        @enderror
+                        <textarea name="title" rows="1" class="article_create_title_input_form"></textarea>
                     </div>
                 </div>
                 
@@ -35,18 +36,22 @@
                         <p>タグ</p>
                     </div>
                     <div class="article_create_tag_input">
-                        <input type="text" class="article_create_tag_input_form">
+                        <input type="text" name="tag" class="article_create_tag_input_form">
                     </div>
                 </div>
                 <div class="article_create_article_area">
                     <div class="article_create_article_headline">
                         <p>記事</p>
                     </div>
-                    @if(isset($error['article']))
+                    
+                    {{-- @if(isset($error['article']))
                         <p class="alert">{{ $error['article'] }}</p>
-                    @endif
+                    @endif --}}
                     <div class="article_create_article_input">
-                        <textarea name="" rows="10" id="article_create_article_input_form"></textarea>
+                        @error('article')
+                            <p class="validate_alert">{{ $message }}</p>
+                        @enderror
+                        <textarea name="article" rows="10" id="article_create_article_input_form"></textarea>
                     </div>
                 </div>
                 <div class="article_create_submit_area">

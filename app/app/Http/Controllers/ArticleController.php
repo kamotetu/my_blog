@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ArticlePostRequest;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -35,26 +37,8 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArticlePostRequest $request)
     {
-        $error = [];
-
-        if($request->title === null){
-            $error['title'] = 'タイトルが入力されていません。';
-        }
-        if($request->article === null){
-            $error['article'] = '記事が入力されていません。';
-        }
-
-        if(!empty($error)){
-            return view(
-                'admin.article.create',
-                [
-                    'errors' => $error,
-                ]
-            );
-        }
-
         DB::beginTransaction();
         
         try{

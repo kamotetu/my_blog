@@ -11231,6 +11231,10 @@ h5 {
   min-height: 23vh;
 }
 
+.validate_alert {
+  color: #ff8686;
+}
+
 /*!
  * Font Awesome Free 5.14.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
