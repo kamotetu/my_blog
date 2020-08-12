@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ArticlePostRequest;
 use Illuminate\Support\Facades\DB;
+use App\Models\Article;
+use App\Models\Tag;
+use App\Models\Genre;
 
 class ArticleController extends Controller
 {

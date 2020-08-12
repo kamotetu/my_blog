@@ -1,14 +1,17 @@
 @extends('layouts.app')
+@section('content_js')
+    {{ asset('js/jquery.autoexpand.js') }}
+@endsection
 @section('headLine')
     投稿する
 @endsection
 @section('headLineUrl')
-    {{ route('article.create') }}
+    {{ route('admin.article.create') }}
 @endsection
 @section('content')
     <div class="article_create_container">
         <div class="article_create_left_area">
-            <form action="{{ route('article.store') }}" method="post">
+            <form action="{{ route('admin.article.store') }}" method="post">
                 @csrf
                 <div class="article_create_genre_area">
                     <div class="article_create_genre_headline">
@@ -44,14 +47,11 @@
                         <p>記事</p>
                     </div>
                     
-                    {{-- @if(isset($error['article']))
-                        <p class="alert">{{ $error['article'] }}</p>
-                    @endif --}}
                     <div class="article_create_article_input">
                         @error('article')
                             <p class="validate_alert">{{ $message }}</p>
                         @enderror
-                        <textarea name="article" rows="10" id="article_create_article_input_form"></textarea>
+                        <textarea name="article" rows="10" id="article_create_article_input_form" wrap="hard"></textarea>
                     </div>
                 </div>
                 <div class="article_create_submit_area">

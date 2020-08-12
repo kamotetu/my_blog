@@ -10,17 +10,9 @@ $(function(){
         }
     });
 
-    var $textareatitle = $('.article_create_title_input_form');
-    var lineHeightTitle = parseInt($textareatitle.css('lineHeight'));
+    $('textarea.article_create_title_input_form').autoExpand();
 
-    $textareatitle.on('input', function(e) {
-        var linestitle = ($(this).val() + '\n').match(/\n/g).length;
-        if(linestitle >= 1){
-            $(this).height(lineHeightTitle * linestitle);
-        }
-    });
-
-    $('.article_create_title_input_form').on('keyup', function (){
+    $('.article_create_title_input_form').on('keyup keyup', function (){
         var input_value = $(this).val();
         
         $('.article_view_title').html('<h5>' +input_value.replace(/\n/g, '<br>') + '</h5>');
@@ -32,6 +24,8 @@ $(function(){
         var input_value = input_value.replace(/([^\s]+)/g, '<span class="article_view_tag_color">' + '$1' + '</span>');
         $('.article_view_tag').html(input_value);
     });
+
+    $('#article_dreate_article_input_form').autoExpand();
 
     $('#article_create_article_input_form').on('keyup', function (){
         var input_value = $(this).val();

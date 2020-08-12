@@ -11131,7 +11131,8 @@ h5 {
 .article_create_container .article_create_left_area .article_create_title_area .article_create_title_input_form {
   width: 100%;
   border-radius: 5px;
-  line-height: 20px;
+  resize: none;
+  padding: 1px;
 }
 
 .article_create_container .article_create_left_area .article_create_genre_area {

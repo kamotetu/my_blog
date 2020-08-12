@@ -103,16 +103,9 @@ $(function () {
       $(this).height(lineHeight * lines);
     }
   });
-  var $textareatitle = $('.article_create_title_input_form');
-  var lineHeightTitle = parseInt($textareatitle.css('lineHeight'));
-  $textareatitle.on('input', function (e) {
-    var linestitle = ($(this).val() + '\n').match(/\n/g).length;
+  $('textarea.article_create_title_input_form').autoExpand(); // $('textarea.article_create_title_input_form').css('height', '25px');
 
-    if (linestitle >= 1) {
-      $(this).height(lineHeightTitle * linestitle);
-    }
-  });
-  $('.article_create_title_input_form').on('keyup', function () {
+  $('.article_create_title_input_form').on('keyup keyup', function () {
     var input_value = $(this).val();
     $('.article_view_title').html('<h5>' + input_value.replace(/\n/g, '<br>') + '</h5>');
   });
