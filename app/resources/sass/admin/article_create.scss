@@ -23,10 +23,14 @@
         .article_create_genre_area {
             padding: 10px;
             .article_create_genre_headline {
-
+                display: flex;
+                > p {
+                    margin-left: 0;
+                    margin-right: 5px;
+                }
             }
             .article_create_genre_input {
-
+                display: flex;
             }
         }
         .article_create_tag_area {
@@ -64,6 +68,7 @@
         position: relative;
         left: 20px;
         width: 45%;
+        border-right: solid 1px white;
         .article_view_preview_area {
             padding: 10px;
             .article_view_preview {

@@ -25,7 +25,7 @@ $(function(){
         $('.article_view_tag').html(input_value);
     });
 
-    $('#article_dreate_article_input_form').autoExpand();
+    $('#article_create_article_input_form').autoExpand();
 
     $('#article_create_article_input_form').on('keyup', function (){
         var input_value = $(this).val();
@@ -33,7 +33,7 @@ $(function(){
         $('.article_view_article').html(input_value);
     });
 
-    $('#input_article_submit').on('click', function (){
-        $(form).submit();
-    })
+    // $('#input_article_submit').on('click', function (){
+        
+    // })
 });
