@@ -8,9 +8,25 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Article;
 use App\Models\Tag;
 use App\Models\Genre;
+use App\Repositories\GenreRepository;
+use App\Repositories\ArticleRepository;
 
 class ArticleController extends Controller
 {
+
+    private $genreRepository;
+
+    private $articleRepository;
+
+    public function __construct(
+        GenreRepository $genreRepository,
+        ArticleRepository $articleRepository
+    )
+    {
+        $this->genreRepository = $genreRepository;
+        $this->articleRepository = $articleRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,15 +38,41 @@ class ArticleController extends Controller
     }
 
     /**
+     * 編集画面
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $genres = $this->genreRepository->findAll();
+        if(!empty($request->Article)){
+            $Article = $this->articleRepository->find($request->Article);
+            $title = $Article->title;
+            $genre = $Article->genre();
+            $tags = $Article->tags;
+            if(!empty($tags)){
+                $tags_box = [];
+                foreach($tags as $tag){
+                    array_push($tags_box, $tag->name);
+                }
+                $tags_value = implode(",", $tags_box);
+            }
+            $article = $Article->article;
+            $article_id = $Article->id;
+        }
+
         return view(
             'admin.article.create',
-            []
+            [
+                'genres' => $genres,
+                'title' => $title ?? null,
+                'genre' => $genre,
+                'tags' => $tags_value ?? null,
+                'article_id' => $article_id,
+                'tags_value' => $tags_value,
+                'article' => $article,
+            ]
         );
     }
 
@@ -44,16 +86,25 @@ class ArticleController extends Controller
     {
         DB::beginTransaction();
         
-        try{
-            $Article = new Article();
+        // try{
+            if(!empty($request->article_id)){
+                $Article = $this->articleRepository->find($request->article_id);
+            }else{
+                $Article = new Article();
+            }
+            
             $Article->title = $request->title;
             $Article->article = $request->article;
             $Article->user_id = $request->user()->id;
+            $Article->draft = $request->draft;
             if(!empty($request->genre)){
-                $Genre = new Genre();
-                $Genre->updateOrCreate(['name' => $request->genre]);
-                $genre_value = $Genre->where('name', $request->genre)->first();
+                $Article->genre()->save($request->genre);
             }
+            // if(!empty($request->genre)){
+            //     $Genre = new Genre();
+            //     $Genre->updateOrCreate(['name' => $request->genre]);
+            //     $genre_value = $Genre->where('name', $request->genre)->first();
+            // }
             if(!empty($request->tag)){
                 $Tag = new Tag();
                 $patterns = [];
@@ -64,6 +115,7 @@ class ArticleController extends Controller
                 $result = preg_replace($patterns, ",", $request->tag);
                 $tags = explode(",", $result);
             }
+            
             $Article->save();
             foreach($tags as $tag){
                 if(!empty($tag)){
@@ -73,14 +125,14 @@ class ArticleController extends Controller
                 }
             }
                 
-            if(!empty($genre_value)){
-                $Article->genres()->attach($genre_value->id);
-            }
+            // if(!empty($genre_value)){
+            //     $Article->genres()->attach($genre_value->id);
+            // }
 
-        }catch(\Throwable $t){
-            DB::rollback();
-            return back()->withInput();
-        }
+        // }catch(\Throwable $t){
+        //     DB::rollback();
+        //     return back()->withInput();
+        // }
 
         DB::commit();
     
@@ -88,7 +140,7 @@ class ArticleController extends Controller
             route(
                 'admin.article.create',
                 [
-                    'id' => $Article->id,
+                    'Article' => $Article,
                 ]
             )
         );
@@ -137,5 +189,48 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function genre_edit()
+    {
+        $test = $this->genreRepository->findAll();
+        return view(
+            'admin.article.genre_edit',
+            [
+                'genres' => $this->genreRepository->findAll(),
+            ]
+        );
+    }
+
+    public function genre_create(Request $request)
+    {   
+        DB::beginTransaction();
+        $Genre = new Genre();
+        $Genre->updateOrCreate(['name' => $request->genre]);
+        DB::commit();
+
+        return redirect()->route('admin.article.genre_edit');
+    }
+
+    public function genre_patch(Request $request)
+    {
+        //削除
+        DB::BeginTransaction();
+        $genre = $request->genre;
+        $id = $request->patch_genre_id;
+        $Genre = $this->genreRepository->find($id);
+        $Genre->name = $genre;
+        $Genre->save();
+        DB::commit();
+
+        return redirect()->route('admin.article.genre_edit');
+    }
+
+    public function genre_delete(Request $request)
+    {
+        $Genre = $this->genreRepository->find($request->delete_genre_id);
+        $this->genreRepository->delete($Genre);
+        
+        return redirect()->route('admin.article.gene_edit');
     }
 }

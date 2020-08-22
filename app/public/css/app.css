@@ -11128,7 +11128,7 @@ h5 {
   padding: 10px;
 }
 
-.article_create_container .article_create_left_area .article_create_title_area .article_create_title_input_form {
+.article_create_container .article_create_left_area .article_create_title_area .article_create_title_input #article_create_title_input_form {
   width: 100%;
   border-radius: 5px;
   resize: none;
@@ -11139,11 +11139,24 @@ h5 {
   padding: 10px;
 }
 
+.article_create_container .article_create_left_area .article_create_genre_area .article_create_genre_headline {
+  display: flex;
+}
+
+.article_create_container .article_create_left_area .article_create_genre_area .article_create_genre_headline > p {
+  margin-left: 0;
+  margin-right: 5px;
+}
+
+.article_create_container .article_create_left_area .article_create_genre_area .article_create_genre_input {
+  display: flex;
+}
+
 .article_create_container .article_create_left_area .article_create_tag_area {
   padding: 10px;
 }
 
-.article_create_container .article_create_left_area .article_create_tag_area .article_create_tag_input_form {
+.article_create_container .article_create_left_area .article_create_tag_area .article_create_tag_input #article_create_tag_input_form {
   width: 100%;
   border-radius: 5px;
 }
@@ -11174,6 +11187,7 @@ h5 {
   position: relative;
   left: 20px;
   width: 45%;
+  border-right: solid 1px white;
 }
 
 .article_create_container .article_create_right_area .article_view_preview_area {
@@ -11195,7 +11209,7 @@ h5 {
   min-width: 200px;
 }
 
-.article_create_container .article_create_right_area .article_view_title_area .article_view_title {
+.article_create_container .article_create_right_area .article_view_title_area #article_view_title {
   border-bottom: 1px solid gray;
   min-width: 20%;
   min-height: 20px;
@@ -11205,14 +11219,14 @@ h5 {
   padding: 10px;
 }
 
-.article_create_container .article_create_right_area .article_view_tag_area .article_view_tag {
+.article_create_container .article_create_right_area .article_view_tag_area #article_view_tag {
   border: 1px solid gray;
   border-radius: 5px;
   height: 30px;
   width: 100%;
 }
 
-.article_create_container .article_create_right_area .article_view_tag_area .article_view_tag .article_view_tag_color {
+.article_create_container .article_create_right_area .article_view_tag_area #article_view_tag .article_view_tag_color {
   background-color: #57d4fa;
   border-radius: 3px;
   margin: 3px 0px 3px 0px;
@@ -11235,6 +11249,15 @@ h5 {
 
 .validate_alert {
   color: #ff8686;
+}
+
+.article_genre_edit_area {
+  margin-left: 10%;
+}
+
+.navbar-sub_content {
+  text-decoration: none;
+  color: gray;
 }
 
 /*!

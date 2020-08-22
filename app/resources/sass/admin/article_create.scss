@@ -12,7 +12,7 @@
 
             }
             .article_create_title_input {
-                &_form {
+                #article_create_title_input_form{
                     width: 100%;
                     border-radius: 5px;
                     resize: none;
@@ -23,10 +23,14 @@
         .article_create_genre_area {
             padding: 10px;
             .article_create_genre_headline {
-
+                display: flex;
+                > p {
+                    margin-left: 0;
+                    margin-right: 5px;
+                }
             }
             .article_create_genre_input {
-
+                display: flex;
             }
         }
         .article_create_tag_area {
@@ -35,7 +39,7 @@
 
             }
             .article_create_tag_input {
-                &_form {
+                #article_create_tag_input_form {
                     width: 100%;
                     border-radius: 5px;
                 }
@@ -64,6 +68,7 @@
         position: relative;
         left: 20px;
         width: 45%;
+        border-right: solid 1px white;
         .article_view_preview_area {
             padding: 10px;
             .article_view_preview {
@@ -81,7 +86,7 @@
         .article_view_title_area {
             padding: 10px;
             min-width: 200px;
-            .article_view_title {
+            #article_view_title {
                 border-bottom: 1px solid gray;
                 min-width: 20%;
                 min-height: 20px;
@@ -89,7 +94,7 @@
         }
         .article_view_tag_area {
             padding: 10px;
-            .article_view_tag {
+            #article_view_tag {
                 border: 1px solid gray;
                 border-radius: 5px;
                 height: 30px;
