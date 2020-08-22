@@ -21,9 +21,9 @@ class Article extends Model
         return $this->belongsToMany('App\Models\Tag')->withTimestamps();
     }
 
-    public function genres()
+    public function genre()
     {
-        return $this->belongsToMany('App\Models\Genre')->withTimestamps();
+        return $this->hasMany('App\Models\Genre');
     }
 
 }

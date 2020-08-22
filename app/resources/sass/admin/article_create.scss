@@ -12,7 +12,7 @@
 
             }
             .article_create_title_input {
-                &_form {
+                #article_create_title_input_form{
                     width: 100%;
                     border-radius: 5px;
                     resize: none;
@@ -39,7 +39,7 @@
 
             }
             .article_create_tag_input {
-                &_form {
+                #article_create_tag_input_form {
                     width: 100%;
                     border-radius: 5px;
                 }
@@ -86,7 +86,7 @@
         .article_view_title_area {
             padding: 10px;
             min-width: 200px;
-            .article_view_title {
+            #article_view_title {
                 border-bottom: 1px solid gray;
                 min-width: 20%;
                 min-height: 20px;
@@ -94,7 +94,7 @@
         }
         .article_view_tag_area {
             padding: 10px;
-            .article_view_tag {
+            #article_view_tag {
                 border: 1px solid gray;
                 border-radius: 5px;
                 height: 30px;

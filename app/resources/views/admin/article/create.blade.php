@@ -23,7 +23,7 @@
                     </div>
                     <div class="article_create_genre_input">
                         @foreach($genres as $key => $genre)
-                            <input type="radio" class="article_create_genre" name="genre" value="{{ $genre->id }}" @if($key === 0) checked="checked" @endif>
+                            <input type="radio" id="article_create_genre" name="genre" value="{{ $genre->id }}" @if($key === 0) checked="checked" @endif>
                             {{ $genre->name }}
                             <br>
                         @endforeach
@@ -38,19 +38,16 @@
                         @error('title')
                             <p class="validate_alert">{{ $message }}</p>
                         @enderror
-                        <textarea name="title" rows="1" class="article_create_title_input_form" style="min-height: 26px;">@if(!empty($Article->title))@else{{ old('title') }}@endif</textarea>
+                        <textarea name="title" rows="1" id="article_create_title_input_form" style="min-height: 26px;">@if(!empty($title)) {{ $title }} @else{{ old('title') }}@endif</textarea>
                     </div>
                 </div>
-                @if(isset($Article))
-                {{ dd($Article) }}
-                @endif
                 
                 <div class="article_create_tag_area">
                     <div class="article_create_tag_headline">
                         <p>タグ</p>
                     </div>
                     <div class="article_create_tag_input">
-                        <input type="text" name="tag" class="article_create_tag_input_form" value="{{ old('tag') }}">
+                        <input type="text" name="tag" id="article_create_tag_input_form" value="@if(isset($tags_value)) {{ $tags_value }} @else {{ old('tag') }}@endif">
                     </div>
                 </div>
                 <div class="article_create_article_area">
@@ -62,7 +59,7 @@
                         @error('article')
                             <p class="validate_alert">{{ $message }}</p>
                         @enderror
-                        <textarea name="article" rows="10" id="article_create_article_input_form" wrap="hard">@if(!empty($aricle_title))@else{{ old('article') }}@endif</textarea>
+                        <textarea name="article" rows="10" id="article_create_article_input_form" wrap="hard">@if(isset($article)){{ $article }}@else{{ old('article') }}@endif</textarea>
                     </div>
                 </div>
                 <div class="article_create_submit_area">
@@ -79,22 +76,22 @@
             </div>
             <div class="article_view_genre_area">
                 <div class="article_view_genre">
-                    
+                    {{-- insert_js_area --}}
                 </div>
             </div>
             <div class="article_view_title_area">
-                <div class="article_view_title">
-
+                <div id="article_view_title">
+                    {{-- insert_js_area --}}
                 </div>
             </div>
             <div class="article_view_tag_area">
-                <div class="article_view_tag">
-
+                <div id="article_view_tag">
+                    {{-- insert_js_area --}}
                 </div>
             </div>
             <div class="article_view_article_area">
                 <div class="article_view_article">
-
+                    {{-- insert_js_area --}}
                 </div>
             </div>
         </div>

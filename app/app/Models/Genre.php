@@ -13,6 +13,6 @@ class Genre extends Model
 
     public function articles()
     {
-        return $this->belongsToMany('App\Models\Article')->withTimestamps();
+        return $this->belongsTo('App\Models\Article');
     }
 }

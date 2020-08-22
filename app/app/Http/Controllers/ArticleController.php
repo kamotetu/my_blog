@@ -49,9 +49,17 @@ class ArticleController extends Controller
         if(!empty($request->Article)){
             $Article = $this->articleRepository->find($request->Article);
             $title = $Article->title;
-            $genres = $Article->genres;
+            $genre = $Article->genre();
             $tags = $Article->tags;
+            if(!empty($tags)){
+                $tags_box = [];
+                foreach($tags as $tag){
+                    array_push($tags_box, $tag->name);
+                }
+                $tags_value = implode(",", $tags_box);
+            }
             $article = $Article->article;
+            $article_id = $Article->id;
         }
 
         return view(
@@ -59,7 +67,11 @@ class ArticleController extends Controller
             [
                 'genres' => $genres,
                 'title' => $title ?? null,
-                'genre'
+                'genre' => $genre,
+                'tags' => $tags_value ?? null,
+                'article_id' => $article_id,
+                'tags_value' => $tags_value,
+                'article' => $article,
             ]
         );
     }
@@ -86,10 +98,13 @@ class ArticleController extends Controller
             $Article->user_id = $request->user()->id;
             $Article->draft = $request->draft;
             if(!empty($request->genre)){
-                $Genre = new Genre();
-                $Genre->updateOrCreate(['name' => $request->genre]);
-                $genre_value = $Genre->where('name', $request->genre)->first();
+                $Article->genre()->save($request->genre);
             }
+            // if(!empty($request->genre)){
+            //     $Genre = new Genre();
+            //     $Genre->updateOrCreate(['name' => $request->genre]);
+            //     $genre_value = $Genre->where('name', $request->genre)->first();
+            // }
             if(!empty($request->tag)){
                 $Tag = new Tag();
                 $patterns = [];
@@ -110,9 +125,9 @@ class ArticleController extends Controller
                 }
             }
                 
-            if(!empty($genre_value)){
-                $Article->genres()->attach($genre_value->id);
-            }
+            // if(!empty($genre_value)){
+            //     $Article->genres()->attach($genre_value->id);
+            // }
 
         // }catch(\Throwable $t){
         //     DB::rollback();
