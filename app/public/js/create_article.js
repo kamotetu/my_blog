@@ -94,6 +94,7 @@
 /***/ (function(module, exports) {
 
 $(function () {
+<<<<<<< HEAD
   //アクセス時のtitleのvalueをプレビューに表示する処理
   var article_title_value = document.getElementById("article_create_title_input_form").value;
 
@@ -117,6 +118,19 @@ $(function () {
   $('textarea#article_create_title_input_form').autoExpand(); //titleのvalueを入力したときにプレビュー表示する処理
 
   $('#article_create_title_input_form').on('keyup keyup', function () {
+=======
+  var $textarea = $('#article_create_article_input_form');
+  var lineHeight = parseInt($textarea.css('lineHeight'));
+  $textarea.on('input', function (e) {
+    var lines = ($(this).val() + '\n').match(/\n/g).length;
+
+    if (lines >= 10) {
+      $(this).height(lineHeight * lines);
+    }
+  });
+  $('textarea.article_create_title_input_form').autoExpand();
+  $('.article_create_title_input_form').on('keyup keyup', function () {
+>>>>>>> fuature/Article投稿機能
     var input_value = $(this).val();
     $('#article_view_title').html('<h5>' + input_value.replace(/\n/g, '<br>') + '</h5>');
   }); //tagのvalueを入力した時にプレビュー表示する処理
@@ -125,11 +139,17 @@ $(function () {
     var input_value = $('#article_create_tag_input_form').val();
     var input_value = input_value.replace(/\s|　|,|、/g, " ");
     var input_value = input_value.replace(/([^\s]+)/g, '<span class="article_view_tag_color">' + '$1' + '</span>');
+<<<<<<< HEAD
     $('#article_view_tag').html(input_value);
   }); //articleの入力フォームの自動伸縮処理(ライブラリ)
 
   $('#article_create_article_input_form').autoExpand(); //articleのvalueを入力した時にプレビューに表示する処理
 
+=======
+    $('.article_view_tag').html(input_value);
+  });
+  $('#article_dreate_article_input_form').autoExpand();
+>>>>>>> fuature/Article投稿機能
   $('#article_create_article_input_form').on('keyup', function () {
     var input_value = $(this).val();
     var input_value = input_value.replace(/\n/g, '<br>');

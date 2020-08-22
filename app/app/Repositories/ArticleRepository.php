@@ -17,4 +17,12 @@ class ArticleRepository
     {   
         return $this->Article::find($id);
     }
+<<<<<<< HEAD
+=======
+
+    public function frontRecentlyPagination()
+    {
+        return $this->Article::paginate(10);
+    }
+>>>>>>> fuature/Article投稿機能
 }

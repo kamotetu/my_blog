@@ -11,19 +11,23 @@
                     最近の記事
                 </h2>
             </div>
-            <div class="index_article_content">
-                <a href="">
-                    <div class="index_title_area">
-                        <h5>
-                            タイトル
-                        </h5>
-                    </div>
+            @if(isset($recently_article))
+                @foreach($recently_article as $article)
+                    <div class="index_article_content">
+                        <a href="">
+                            <div class="index_title_area">
+                                <h5>
+                                    {{ $article->title }}
+                                </h5>
+                            </div>
 
-                    <div class="index_article_area">
-                        記事記事記事記事記事記事記事記事記事記事記事記事記事記事記事
+                            <div class="index_article_area">
+                                {{ mb_strimwidth($article->article, 0, 50, "...") }}
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
+                @endforeach
+            @endif
         </div>
     </div>
 @endsection
