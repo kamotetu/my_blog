@@ -11162,6 +11162,7 @@ h5 {
   padding: 5px;
   border-radius: 5px;
   border: 2px solid black;
+  resize: none;
 }
 
 .article_create_container .article_create_left_area .article_create_submit_area {
