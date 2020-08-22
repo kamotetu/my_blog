@@ -11062,6 +11062,19 @@ a.text-dark:focus {
   opacity: 0;
 }
 
+.show_article_container {
+  position: relative;
+  width: 47%;
+  height: 90vh;
+  background-color: white;
+  opacity: 0.7;
+  overflow: hidden;
+}
+
+.show_article_container .show_article_title_area .show_article_title {
+  border-bottom: solid 1px gray;
+}
+
 p,
 h2,
 h5 {

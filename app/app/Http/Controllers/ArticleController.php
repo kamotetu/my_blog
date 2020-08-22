@@ -67,11 +67,11 @@ class ArticleController extends Controller
             [
                 'genres' => $genres,
                 'title' => $title ?? null,
-                'genre' => $genre,
+                'genre' => $genre ?? null,
                 'tags' => $tags_value ?? null,
-                'article_id' => $article_id,
-                'tags_value' => $tags_value,
-                'article' => $article,
+                'article_id' => $article_id ?? null,
+                'tags_value' => $tags_value ?? null,
+                'article' => $article ?? null,
             ]
         );
     }
