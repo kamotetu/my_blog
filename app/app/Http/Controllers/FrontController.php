@@ -35,8 +35,13 @@ class FrontController extends Controller
 
     public function show(Request $request)
     {
+        $article = $this->articleRepository->find($request->id);
+        $a = $article->genre();
         return view(
-            'front.show'
+            'front.show',
+            [
+                'article' => $article,
+            ]
         );
     }
 }

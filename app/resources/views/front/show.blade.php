@@ -1,28 +1,26 @@
 @extends('layouts.front')
 
 @section('content')
-    <div class="index_article_container">
-        <div class="index_top_title">
-            <h2 class="index_near_article">
-                最近の記事
-            </h2>
-        </div>
-        {{-- @if(isset($recently_articles))
-            @foreach($recently_articles as $article)
-            <div class="index_article_content">
-                <a href="">
-                    <div class="index_title_area">
-                        <h5>
-                            {{ $article->title }}
-                        </h5>
-                    </div>
-
-                    <div class="index_article_area">
-                        {{ $article->article }}
-                    </div>
-                </a>
+    <div class="show_article_container">
+        <div class="show_article_genre_area">
+            <div class="show_article_genre">
+                <span>{{ $article->genre()->name }}</span>
             </div>
-            @endforeach
-        @endif --}}
+        </div>
+        <div class="show_article_title_area">
+            <div class="show_article_title">
+                <h5>{{ $article->title }}</h5>
+            </div>
+        </div>
+        <div class="show_article_tag_area">
+            <div class="show_article_tag">
+
+            </div>
+        </div>
+        <div class="show_article_article_area">
+            <div class="show_article_article">
+                {{ $article->article }}
+            </div>
+        </div>
     </div>
 @endsection
