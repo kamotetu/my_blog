@@ -103,8 +103,7 @@ $(function () {
       $(this).height(lineHeight * lines);
     }
   });
-  $('textarea.article_create_title_input_form').autoExpand(); // $('textarea.article_create_title_input_form').css('height', '25px');
-
+  $('textarea.article_create_title_input_form').autoExpand();
   $('.article_create_title_input_form').on('keyup keyup', function () {
     var input_value = $(this).val();
     $('.article_view_title').html('<h5>' + input_value.replace(/\n/g, '<br>') + '</h5>');
@@ -115,6 +114,7 @@ $(function () {
     var input_value = input_value.replace(/([^\s]+)/g, '<span class="article_view_tag_color">' + '$1' + '</span>');
     $('.article_view_tag').html(input_value);
   });
+  $('#article_dreate_article_input_form').autoExpand();
   $('#article_create_article_input_form').on('keyup', function () {
     var input_value = $(this).val();
     var input_value = input_value.replace(/\n/g, '<br>');
