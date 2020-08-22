@@ -7,10 +7,10 @@
                 最近の記事
             </h2>
         </div>
-        @if(isset($recently_articles))
+        {{-- @if(isset($recently_articles))
             @foreach($recently_articles as $article)
             <div class="index_article_content">
-                <a href="{{ route('front.show', ['id' => $article->id]) }}">
+                <a href="">
                     <div class="index_title_area">
                         <h5>
                             {{ $article->title }}
@@ -23,6 +23,6 @@
                 </a>
             </div>
             @endforeach
-        @endif
+        @endif --}}
     </div>
 @endsection

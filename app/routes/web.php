@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', 'FrontController@index')->name('front.index');
+Route::get('show/{id}', 'FrontController@show')->name('front.show');
 
 Auth::routes();
 
@@ -32,5 +33,6 @@ Route::middleware(['auth'])->group(function(){
 // Route::get('article/create', 'ArticleController@create')->middleware('auth')->name('article.create');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 
 

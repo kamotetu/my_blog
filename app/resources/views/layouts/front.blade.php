@@ -74,7 +74,12 @@
         </nav> --}}
 
         <main>
-            @yield('content')
+            @include('header.header')
+            <div class="index_container">
+                <img src="{{ asset('images/back_image3.jpg') }}" alt="かもてつ日記" class="index_back_image_area">
+                @include('front.left_side');
+                @yield('content')
+            </div>
         </main>
     </div>
 </body>

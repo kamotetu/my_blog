@@ -17,4 +17,9 @@ class ArticleRepository
     {   
         return $this->Article::find($id);
     }
+
+    public function frontRecentlyPagination()
+    {
+        return $this->Article::paginate(10);
+    }
 }
