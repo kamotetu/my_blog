@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(function () {
+window.onload = function () {
   //アクセス時のtitleのvalueをプレビューに表示する処理
   var article_title_value = document.getElementById("article_create_title_input_form").value;
 
@@ -135,7 +135,7 @@ $(function () {
     var input_value = input_value.replace(/\n/g, '<br>');
     $('.article_view_article').html(input_value);
   });
-});
+};
 
 /***/ }),
 

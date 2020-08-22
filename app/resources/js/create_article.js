@@ -1,4 +1,4 @@
-$(function(){
+window.onload = function(){
     //アクセス時のtitleのvalueをプレビューに表示する処理
     var article_title_value = document.getElementById("article_create_title_input_form").value;
     if(article_title_value !== undefined){
@@ -42,4 +42,4 @@ $(function(){
         var input_value = input_value.replace(/\n/g, '<br>');
         $('.article_view_article').html(input_value);
     });
-});
+};
