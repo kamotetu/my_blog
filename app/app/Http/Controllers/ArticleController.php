@@ -10,6 +10,7 @@ use App\Models\Tag;
 use App\Models\Genre;
 use App\Repositories\GenreRepository;
 use App\Repositories\ArticleRepository;
+use Auth;
 
 class ArticleController extends Controller
 {
@@ -46,8 +47,8 @@ class ArticleController extends Controller
     public function create(Request $request)
     {
         $genres = $this->genreRepository->findAll();
-        if(!empty($request->Article)){
-            $Article = $this->articleRepository->find($request->Article);
+        if(!empty($request->id)){
+            $Article = $this->articleRepository->find($request->id);
             $title = $Article->title;
             $genre = $Article->genre();
             $tags = $Article->tags;
@@ -92,19 +93,12 @@ class ArticleController extends Controller
             }else{
                 $Article = new Article();
             }
-            
             $Article->title = $request->title;
             $Article->article = $request->article;
             $Article->user_id = $request->user()->id;
             $Article->draft = $request->draft;
-            if(!empty($request->genre)){
-                $Article->genre()->save($request->genre);
-            }
-            // if(!empty($request->genre)){
-            //     $Genre = new Genre();
-            //     $Genre->updateOrCreate(['name' => $request->genre]);
-            //     $genre_value = $Genre->where('name', $request->genre)->first();
-            // }
+            $Article->genre_id = $request->genre;
+            
             if(!empty($request->tag)){
                 $Tag = new Tag();
                 $patterns = [];
@@ -124,10 +118,6 @@ class ArticleController extends Controller
                     $Article->tags()->attach($tag_value->id);
                 }
             }
-                
-            // if(!empty($genre_value)){
-            //     $Article->genres()->attach($genre_value->id);
-            // }
 
         // }catch(\Throwable $t){
         //     DB::rollback();
@@ -140,7 +130,7 @@ class ArticleController extends Controller
             route(
                 'admin.article.create',
                 [
-                    'Article' => $Article,
+                    'id' => $Article->id,
                 ]
             )
         );
@@ -193,7 +183,6 @@ class ArticleController extends Controller
 
     public function genre_edit()
     {
-        $test = $this->genreRepository->findAll();
         return view(
             'admin.article.genre_edit',
             [
@@ -228,9 +217,31 @@ class ArticleController extends Controller
 
     public function genre_delete(Request $request)
     {
+        $errors = [];
         $Genre = $this->genreRepository->find($request->delete_genre_id);
+        //@todo Genreと紐ずくarticleがある場合削除できない処理
+        if(!empty($Genre->articles())){
+            $errors['genre_linked_article_message'] = 'ジャンルに紐ずく投稿があるため削除できません。';
+            return view(
+                'admin.article.genre_edit',
+                [
+                    'errors' => $errors,
+                ]
+            );
+        }
         $this->genreRepository->delete($Genre);
         
-        return redirect()->route('admin.article.gene_edit');
+        return redirect()->route('admin.article.genre_edit');
+    }
+
+    public function list(Request $request)
+    {
+        $articles = $this->articleRepository->findUserArticleList($request->id);
+        return view(
+            'admin.article.list',
+            [
+                'articles' => $articles,
+            ]
+        );
     }
 }

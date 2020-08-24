@@ -1,11 +1,18 @@
 @extends('layouts.app')
-@section('content_js')
-    {{ asset('js/jquery.autoexpand.js') }}
+@section('content_js_area')
+    <script src="{{ asset('js/jquery.autoexpand.js') }}" defer></script>
+    <script src="{{ asset('js/create_article.js') }}" defer></script>
 @endsection
 @section('headLineArea')
     <span class="navbar-brand">新規作成</span>
+    <a href="{{ route('admin.article.create') }}" class="navbar-sub">
+        <span class="navbar-sub_content">新規作成</span>
+    </a>
     <a href="{{ route('admin.article.genre_edit') }}" class="navbar-sub">
         <span class="navbar-sub_content">ジャンル編集</span>
+    </a>
+    <a href="{{ route('admin.article.list', ['id' => Auth::id()]) }}" class="navbar-sub">
+        <span class="navbar-sub_content">投稿一覧</span>
     </a>
 @endsection
 

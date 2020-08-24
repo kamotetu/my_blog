@@ -1,4 +1,5 @@
 window.onload = function(){
+    
     //アクセス時のtitleのvalueをプレビューに表示する処理
     var article_title_value = document.getElementById("article_create_title_input_form").value;
     if(article_title_value !== undefined){

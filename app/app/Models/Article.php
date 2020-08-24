@@ -11,7 +11,7 @@ class Article extends Model
         'id',
     ];
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo('App\Model\User');
     }
@@ -23,7 +23,7 @@ class Article extends Model
 
     public function genre()
     {
-        return $this->hasMany('App\Models\Genre');
+        return $this->belongsTo('App\Models\Genre');
     }
 
 }

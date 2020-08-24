@@ -11271,6 +11271,25 @@ h5 {
 .navbar-sub_content {
   text-decoration: none;
   color: gray;
+  margin-left: 10px;
+}
+
+.list_article_container {
+  margin-left: 20%;
+  width: 40%;
+  height: 100vh;
+}
+
+.list_article_container .list_article_content {
+  border-bottom: solid 1px gray;
+}
+
+.list_article_container .list_article_content .list_title_area {
+  color: gray;
+}
+
+.list_article_container .list_article_content .list_article_area {
+  color: gray;
 }
 
 /*!

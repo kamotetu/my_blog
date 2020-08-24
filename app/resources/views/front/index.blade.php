@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="index_article_area">
-                        {{ $article->article }}
+                        {{ mb_strimwidth($article->article, 0, 50, "...") }}
                     </div>
                 </a>
             </div>
