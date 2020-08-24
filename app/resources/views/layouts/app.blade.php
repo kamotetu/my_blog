@@ -11,8 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/create_article.js') }}" defer></script>
-    <script src="@yield('content_js')" defer></script>
+    @yield('content_js_area')
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

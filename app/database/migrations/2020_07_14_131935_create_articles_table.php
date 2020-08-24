@@ -17,6 +17,7 @@ class CreateArticlesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->integer('user_id');
+            $table->integer('genre_id');
             $table->string('title');
             $table->text('article');
             $table->boolean('draft');

@@ -1,9 +1,11 @@
 @extends('layouts.app')
 @section('headLineArea')
-@section('headLineArea')
     <span class="navbar-brand">ジャンル編集</span>
-    <a href="{{ route('admin.article.create') }}" class="navbar-sub">
+    <a href="{{ route('admin.article.create', ['id' => '']) }}" class="navbar-sub">
         <span class="navbar-sub_content">新規作成</span>
+    </a>
+    <a href="{{ route('admin.article.list', ['id' => Auth::id()]) }}" class="navbar-sub">
+        <span class="navbar-sub_content">投稿一覧</span>
     </a>
 @endsection
 @section('content')
@@ -26,7 +28,7 @@
                     <input type="text" name="genre" value="{{ $genre->name }}">
                     <button type="submit" name="patch_genre_id" value="{{ $genre->id }}">変更する</button>
                 </form>
-                <form action="{{ route('admin.article.genre_delete') }}">
+                <form action="{{ route('admin.article.genre_delete') }}" method="post">
                     @csrf
                     @method('delete')
                     <button type="submit" name="delete_genre_id" value="{{ $genre->id }}">削除する</button>
