@@ -11,7 +11,7 @@
 
 @section('content')
     <div class="list_article_container">
-        @if(isset($articles))
+        @if($articles->isNotEmpty())
             @foreach($articles as $article)
                 <div class="list_article_content">
                     <a href="{{ route('admin.article.create', ['id' => $article->id]) }}">
@@ -27,6 +27,10 @@
                     </a>
                 </div>
             @endforeach
+        @else
+            <div class="list_article_content">
+                <p>投稿はありません</p>
+            </div>
         @endif
     </div>
 @endsection
