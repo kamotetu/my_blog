@@ -20,7 +20,6 @@
                                 {{ $article->title }}
                             </h5>
                         </div>
-        
                         <div class="list_article_area">
                             {{ mb_strimwidth($article->article, 0, 50, "...") }}
                         </div>
