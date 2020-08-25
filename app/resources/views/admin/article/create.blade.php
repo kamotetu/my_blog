@@ -2,6 +2,7 @@
 @section('content_js_area')
     <script src="{{ asset('js/jquery.autoexpand.js') }}" defer></script>
     <script src="{{ asset('js/create_article.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 @endsection
 @section('headLineArea')
     <span class="navbar-brand">新規作成</span>
@@ -97,7 +98,7 @@
                 </div>
             </div>
             <div class="article_view_article_area">
-                <div class="article_view_article">
+                <div id="article_view_article">
                     {{-- insert_js_area --}}
                 </div>
             </div>

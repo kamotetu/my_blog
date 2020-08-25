@@ -11252,7 +11252,7 @@ h5 {
   padding: 10px;
 }
 
-.article_create_container .article_create_right_area .article_view_article_area .article_view_article {
+.article_create_container .article_create_right_area .article_view_article_area #article_view_article {
   border: 1px solid gray;
   border-radius: 5px;
   overflow: hidden;
