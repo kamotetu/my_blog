@@ -1,6 +1,0 @@
-.env
-/node_modules
-/storage/logs/
-/docker/mysql/data/
-/vendor/
-.idea/
