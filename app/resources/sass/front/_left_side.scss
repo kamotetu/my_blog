@@ -1,0 +1,38 @@
+.left_side_content{
+    position: relative;
+    width: 20%;
+    height: auto;
+    left: -16%;
+    transition: .5s;
+    
+    .index_left_side_content_icon_area {
+        position: relative;
+        .fa-align-justify{
+            position: relative;
+            font-size: 35px;
+            float: right;
+            z-index: 1;
+            padding-right: 20px;
+            cursor: pointer;
+            transition: .5s;
+        }
+        .hide{
+            opacity: 0;
+            transition: .5s;
+        }
+        .fa-angle-left{
+            position: absolute;
+            font-size: 35px;
+            right: 10px;
+            cursor: pointer;
+            opacity: 0;
+        }
+        .icon_active {
+            opacity: 10;
+        }
+    }
+}
+.active {
+    transform: translateX(80%);
+    transition: .5s;
+}
