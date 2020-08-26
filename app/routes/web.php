@@ -13,10 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', 'FrontController@index')->name('front.index');
+Route::get('show/{id}', 'FrontController@show')->name('front.show');
 
 Auth::routes();
 
+Route::middleware(['auth'])->group(function(){
+    // Route::get('article/create/{id}', 'ArticleController@create')->where('id', '[\d*]')->name('admin.article.create');
+    Route::get('article/create', 'ArticleController@create')->name('admin.article.create');
+    Route::post('article/store', 'ArticleController@store')->name('admin.article.store');
+    Route::get('article/genre/edit', 'ArticleController@genre_edit')->name('admin.article.genre_edit');
+    Route::post('article/genre/create', 'ArticleController@genre_create')->name('admin.article.genre_create');
+    Route::patch('article/genre/patch', 'ArticleController@genre_patch')->name('admin.article.genre_patch');
+    Route::delete('article/genre/delete', 'ArticleController@genre_delete')->name('admin.article.genre_delete');
+    Route::get('article/list/{id}', 'ArticleController@list')->name('admin.article.list');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
