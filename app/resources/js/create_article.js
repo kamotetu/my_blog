@@ -40,7 +40,8 @@ window.onload = function(){
     //articleのvalueを入力した時にプレビューに表示する処理
     $('#article_create_article_input_form').on('keyup', function (){
         var input_value = $(this).val();
-        var input_value = input_value.replace(/\n/g, '<br>');
-        $('.article_view_article').html(input_value);
+        // var input_value = input_value.replace(/\n/g, '<br>');
+        var input_value = marked(input_value);
+        $('#article_view_article').html(input_value);
     });
 };
